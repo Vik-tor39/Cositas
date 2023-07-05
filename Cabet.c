@@ -16,6 +16,7 @@ struct Productos
     int cantidad;
     float precio1;
     float precio2;
+    float ganan;
     int hora;
     int minuto;
 };
@@ -59,7 +60,7 @@ int main()
             {
                 printf("\n-------------- BODEGA --------------------------\n");
                 printf("La informacion se dispondra de la sigueinte manera: \n");
-                printf("NOMBRE;CANTIDAD;PRECIO UNITARIO;PRECIO VENTA;HORA  \n");
+                printf("NOMBRE;CANTIDAD;PRECIO UNITARIO;PRECIO VENTA;GANANCIA;HORA  \n");
                 printf("--------------------------------------------------\n");
                 //Se obtiene cada línea de archivo de texto
                 while (fgets(linea, sizeof(linea), archivo) != NULL)
@@ -138,6 +139,7 @@ int main()
                 fprintf(archivo, "%d;", lista[i].cantidad);
                 fprintf(archivo, "%.2f;", lista[i].precio1);
                 fprintf(archivo, "%.2f;", lista[i].precio2);
+                fprintf(archivo, "%.2f;", lista[i].precio2 - lista[i].precio1);
                 fprintf(archivo, "%d:", lista[i].hora);
                 fprintf(archivo, "%d", lista[i].minuto);
                 fprintf(archivo, "\n");
